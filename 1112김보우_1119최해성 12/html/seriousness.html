@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문제의 심각성</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/sigak.css" />
+    <link
+    rel="icon"
+    type="image/x-icon"
+    href="../image/logo.png"
+  />
+    <script defer>
+      document.addEventListener("DOMContentLoaded", () => {
+        const yearInput = document.getElementById("yearInput");
+        const visualizeButton = document.querySelector("button");
+        const oceanDiv = document.getElementById("ocean");
+
+        visualizeButton.addEventListener("click", () => {
+          const year = parseInt(yearInput.value);
+          const dotsCount = (year - 2000) * 10; // 2000년 이후 매년 10개의 점 추가
+          oceanDiv.innerHTML =
+            '<img src="../image/cool.png" alt="바다" class="ocean-img" />';
+
+          for (let i = 0; i < dotsCount; i++) {
+            const dot = document.createElement("div");
+            dot.classList.add("red-dot");
+            dot.style.top = Math.random() * 100 + "%";
+            dot.style.left = Math.random() * 100 + "%";
+            oceanDiv.appendChild(dot);
+          }
+        });
+      });
+    </script>
+    <style>
+      .red-dot {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: rgba(255, 0, 0, 0.543);
+        border-radius: 50%;
+      }
+
+      #ocean {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+      }
+
+      .ocean-img {
+        width: 610px;
+        height: 500px;
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <h1>
+          <img src="../image/logo.png" alt="로고" class="logo" />
+          <a href="main.html">오염 현황</a>
+        </h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="main.html">홈페이지</a>
+            </li>
+            <li>
+              <a href="marine_pollution.html">퀴즈</a>
+            </li>
+            <li>
+              <a href="seriousness.html"><b>현재 페이지</b></a>
+            </li>
+            <li>
+              <a href="solution.html">캠페인</a>
+            </li>
+            <li>
+              <a href="number.html">쓰레기 신고</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <h1>해양 오염 수치 변화 시각화</h1>
+        <div class="input-container">
+          <label for="yearInput">시각화 년도 설정:</label>
+          <input
+            type="number"
+            id="yearInput"
+            min="2000"
+            max="2024"
+            value="2024"
+          />
+          <button>시각화</button>
+        </div>
+        <div id="ocean">
+          <img src="../image/cool.png" alt="바다" class="ocean-img" />
+        </div>
+      </div>
+    </main>
+    <footer class="ffff">
+      <p>
+        © 2024 청정 바다를 위한 웹 개발자 : 김현준 , 최해성 &nbsp| &nbsp주소 :
+        대구 소프트웨어 마이스터 고등학교 해커톤 팀:33
+      </p>
+      <hr />
+    </footer>
+  </body>
+</html>

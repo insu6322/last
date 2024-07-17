@@ -1,0 +1,303 @@
+/* 기본 스타일 */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* 폰트 설정 */
+  margin: 0; /* 페이지 여백 제거 */
+  padding: 0; /* 페이지 패딩 제거 */
+  background-color: #f0f8ff; /* 페이지 배경색 */
+  color: #333; /* 글자 색 */
+  line-height: 1.6; /* 줄 간격 */
+  background-image: url("../image/비키니시티.webp"); /* 이미지 경로 설정 */
+  background-size: cover; /* 화면에 꽉 차도록 이미지 크기 조절 */
+  /* background-position: center; 이미지 중앙 정렬 */
+  background-repeat: no-repeat; /* 이미지 반복 없음 */
+}
+
+/* 헤더 스타일 */
+header {
+  background-color: black; /* 헤더 배경색 */
+  color: #fff; /* 헤더 글자 색 */
+  padding: 20px 0; /* 헤더 상하 패딩 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 헤더 그림자 */
+}
+
+header .container {
+  max-width: 1200px; /* 컨테이너 최대 너비 */
+  margin: 0 auto; /* 컨테이너 중앙 정렬 */
+  padding: 0 20px; /* 컨테이너 좌우 패딩 */
+  display: flex; /* 컨테이너 플렉스 박스 */
+  align-items: center; /* 컨텐츠 세로 중앙 정렬 */
+  justify-content: space-between; /* 컨텐츠 양쪽 끝 정렬 */
+}
+
+header h1 {
+  margin: 0; /* 제목 여백 제거 */
+  font-size: 2.5em; /* 제목 글자 크기 */
+  display: flex; /* 제목 플렉스 박스 */
+  align-items: center; /* 제목 세로 중앙 정렬 */
+}
+
+header h1 a {
+  color: #fff; /* 링크 글자 색 */
+  text-decoration: none; /* 링크 밑줄 제거 */
+  font-size: 1.2em; /* 링크 글자 크기 */
+  transition: color 0.3s ease; /* 링크 색상 애니메이션 */
+}
+
+header h1 a:hover {
+  transform: scale(1.1); /* 로고 확대 */
+}
+
+header h1 .logo {
+  width: 50px; /* 로고 너비 */
+  height: auto; /* 로고 높이 자동 설정 */
+  margin-right: 10px; /* 로고 오른쪽 여백 */
+  border: 2px solid #fff; /* 로고 흰색 테두리 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 로고 그림자 */
+  transition: transform 0.3s ease; /* 로고 변환 애니메이션 */
+}
+
+header h1 .logo:hover {
+  transform: scale(1.1); /* 로고 확대 */
+}
+
+nav ul {
+  list-style-type: none; /* 목록 스타일 제거 */
+  padding: 0; /* 목록 패딩 제거 */
+  margin: 0; /* 목록 여백 제거 */
+  display: flex; /* 목록 플렉스 박스 */
+  gap: 20px; /* 목록 항목 간 간격 */
+}
+
+nav ul li {
+  margin: 0; /* 목록 항목 여백 제거 */
+}
+
+nav ul li a {
+  color: #fff; /* 링크 글자 색 */
+  text-decoration: none; /* 링크 밑줄 제거 */
+  font-size: 1.2em; /* 링크 글자 크기 */
+  transition: color 0.3s ease; /* 링크 색상 애니메이션 */
+}
+
+nav ul li a:hover {
+  color: #f0f8ff; /* 링크 글자 색 변경 */
+  text-decoration: underline; /* 링크 밑줄 추가 */
+}
+
+/* 기본 스타일 계속 */
+main {
+  padding: 40px 20px; /* 메인 영역 패딩 */
+  max-width: 1200px; /* 메인 영역 최대 너비 */
+  margin: 0 auto; /* 메인 영역 중앙 정렬 */
+  box-sizing: border-box; /* 박스 크기 계산 방법 */
+}
+
+.intro {
+  text-align: center; /* 텍스트 중앙 정렬 */
+  margin-bottom: 40px; /* 아래 여백 */
+}
+
+.intro h2 {
+  font-size: 2em; /* 제목 글자 크기 */
+  color: #006994; /* 제목 글자 색 */
+  margin-bottom: 20px; /* 제목 아래 여백 */
+  font-weight: 700; /* 제목 글자 굵기 */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* 제목 그림자 */
+}
+
+.intro img {
+  width: 100%; /* 이미지 너비 */
+  height: auto; /* 이미지 높이 자동 */
+  max-width: 800px; /* 이미지 최대 너비 */
+  margin: 20px 0; /* 이미지 위아래 여백 */
+  border-radius: 16px; /* 이미지 모서리 둥글게 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 이미지 그림자 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 이미지 변환 및 그림자 애니메이션 */
+}
+
+.intro img:hover {
+  transform: scale(1.05); /* 이미지 확대 */
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3); /* 이미지 그림자 강화 */
+}
+
+/* 오염된 바다 사진 스타일 */
+.polluted-sea {
+  position: relative; /* 요소 상대적 배치 */
+  max-width: 800px; /* 요소 최대 너비 */
+  margin: 40px auto; /* 요소 중앙 정렬 및 위아래 여백 */
+  overflow: hidden; /* 넘치는 내용 숨김 */
+  border-radius: 16px; /* 요소 모서리 둥글게 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 요소 그림자 */
+}
+
+.polluted-sea img {
+  width: 100%; /* 이미지 너비 */
+  height: auto; /* 이미지 높이 자동 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 이미지 변환 및 그림자 애니메이션 */
+}
+
+.polluted-sea img:hover {
+  transform: scale(1.05); /* 이미지 확대 */
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3); /* 이미지 그림자 강화 */
+}
+
+.polluted-sea::before {
+  content: ""; /* 가상 요소 내용 비움 */
+  position: absolute; /* 가상 요소 절대 위치 */
+  top: 0; /* 가상 요소 위쪽 위치 */
+  left: 0; /* 가상 요소 왼쪽 위치 */
+  width: 100%; /* 가상 요소 너비 */
+  height: 100%; /* 가상 요소 높이 */
+  background: rgba(255, 0, 150, 0.2); /* 가상 요소 배경색 */
+  backdrop-filter: blur(5px); /* 가상 요소 배경 블러 처리 */
+  transition: backdrop-filter 0.3s ease, background 0.3s ease; /* 가상 요소 블러 및 배경 애니메이션 */
+  pointer-events: none; /* 가상 요소 포인터 이벤트 비활성화 */
+}
+
+.polluted-sea:hover::before {
+  backdrop-filter: blur(10px); /* 가상 요소 블러 강도 증가 */
+  background: rgba(255, 0, 150, 0.3); /* 가상 요소 배경색 투명도 감소 */
+}
+
+.highlights {
+  display: flex; /* 요소 플렉스 박스 */
+  justify-content: space-around; /* 요소 균등 분배 배치 */
+  flex-wrap: wrap; /* 요소 줄 바꿈 배치 */
+  gap: 20px; /* 요소 간 간격 */
+}
+
+.highlight {
+  background-color: #e0f7fa; /* 배경색 */
+  padding: 20px; /* 패딩 */
+  border-radius: 8px; /* 모서리 둥글게 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 */
+  flex: 1; /* 요소 플렉스 비율 */
+  min-width: 250px; /* 최소 너비 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 변환 및 그림자 애니메이션 */
+}
+
+.highlight:hover {
+  transform: translateY(-5px); /* 요소 위로 이동 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 강화 */
+}
+
+.highlight h3 {
+  font-size: 1.5em; /* 제목 글자 크기 */
+  margin-top: 0; /* 제목 위쪽 여백 제거 */
+  color: #007c91; /* 제목 글자 색 */
+}
+
+/* 뉴스 슬라이더 스타일 */
+.news-slider {
+  position: relative; /* 요소 상대적 배치 */
+  overflow: hidden; /* 넘치는 내용 숨김 */
+  height: 100px; /* 높이 */
+}
+
+.news-slide {
+  position: absolute; /* 요소 절대 위치 */
+  width: 100%; /* 너비 */
+  transition: transform 0.5s ease; /* 변환 애니메이션 */
+  cursor: pointer; /* 마우스 커서 포인터 설정 */
+}
+
+.news-content {
+  margin-top: 20px; /* 위쪽 여백 */
+  padding: 20px; /* 패딩 */
+  background-color: #f0f8ff; /* 배경색 */
+  border: 1px solid #ddd; /* 테두리 */
+  border-radius: 8px; /* 모서리 둥글게 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 */
+  display: none; /* 기본적으로 숨김 */
+}
+
+/* 푸터 스타일 */
+footer {
+  background-color: #d2cc5f; /* 배경색 */
+  color: #000000; /* 글자 색 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  padding: 10px 20px; /* 패딩 */
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* 그림자 */
+  margin-top: 40px; /* 위쪽 여백 */
+}
+.ffff {
+  background-color: #d2cc5f; /* 배경색 */
+  color: #000000; /* 글자 색 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  padding: 10px 20px; /* 패딩 */
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* 그림자 */
+  margin-top: 40px; /* 위쪽 여백 */
+  position: fixed; /* 화면 하단 고정 */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+section img {
+  width: 100%; /* 이미지 너비 */
+  height: auto; /* 이미지 높이 자동 */
+  max-width: 800px; /* 이미지 최대 너비 */
+  margin: 20px 0; /* 이미지 위아래 여백 */
+  border-radius: 8px; /* 모서리 둥글게 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 */
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2em; /* 작은 화면에서 제목 글자 크기 */
+  }
+
+  nav ul {
+    flex-direction: column; /* 작은 화면에서 목록 세로 배치 */
+    margin: 0; /* 목록 여백 제거 */
+  }
+
+  nav ul li {
+    margin: 10px 0; /* 목록 항목 위아래 여백 */
+  }
+}
+
+/* 정의 섹션 스타일 */
+.definition {
+  background-color: #f0f0f0; /* 배경색 */
+  padding: 40px 20px; /* 패딩 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.definition h2 {
+  color: #007c91; /* 제목 글자 색 */
+  font-size: 2em; /* 제목 글자 크기 */
+}
+
+/* 원인 섹션 스타일 */
+.causes {
+  background-color: #f9f9f9; /* 배경색 */
+  padding: 40px 20px; /* 패딩 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.causes h3 {
+  color: #007c91; /* 제목 글자 색 */
+  font-size: 1.5em; /* 제목 글자 크기 */
+}
+
+.causes p {
+  color: #555; /* 본문 글자 색 */
+  font-size: 1.2em; /* 본문 글자 크기 */
+  margin-bottom: 20px; /* 본문 아래 여백 */
+}
+
+.causes img {
+  max-width: 100%; /* 이미지 최대 너비 */
+  height: auto; /* 이미지 높이 자동 */
+  border-radius: 8px; /* 모서리 둥글게 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 */
+}
+.logo {
+  border-radius: 30%; /* 둥글게 만들기 */
+  width: 70px; /* 원하는 너비로 조정 */
+  height: 70px; /* 원하는 높이로 조정 */
+  object-fit: cover; /* 이미지가 영역을 채우도록 */
+}

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>퀴즈</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+    rel="icon"
+    type="image/x-icon"
+    href="../image/logo.png"
+  />
+    <script src="../js/script.js" defer></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .s {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 0;
+        padding: 20px;
+      }
+      #quiz,
+      #oxQuiz,
+      #selection {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 600px;
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+      .question {
+        font-weight: bold;
+      }
+      .answer label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+      #submit,
+      #restart,
+      #oxSubmit,
+      #oxRestart,
+      #startQuiz,
+      #startOxQuiz {
+        background-color: #006994;
+        color: rgb(255, 255, 255);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        margin: 5px;
+      }
+      #submit:hover,
+      #restart:hover,
+      #oxSubmit:hover,
+      #oxRestart:hover,
+      #startQuiz:hover,
+      #startOxQuiz:hover {
+        background-color: #014e6d;
+      }
+      .ox-button {
+        width: 100px;
+        height: 100px;
+        font-size: 36px;
+        margin: 10px;
+      }
+      #result,
+      #oxResult {
+        margin-top: 20px;
+        font-size: 20px;
+      }
+      footer p {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>
+          <img src="../image/logo.png" alt="로고" class="logo" />
+          <a href="main.html">퀴즈</a>
+        </h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="main.html">홈페이지</a>
+            </li>
+            <li>
+              <b
+                ><a href="marine_pollution.html"><b>현재 페이지</b></a></b
+              >
+            </li>
+            <li>
+              <a href="seriousness.html">오염 현황</a>
+            </li>
+            <li>
+              <a href="solution.html">캠페인</a>
+            </li>
+            <li>
+              <a href="number.html">쓰레기 신고</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="s">
+      <div id="selection" class="s">
+        <p>퀴즈 유형을 선택하세요:</p>
+        <button id="startQuiz">객관식 퀴즈</button>
+        <button id="startOxQuiz">OX 퀴즈</button>
+      </div>
+      <div id="quiz" class="s" style="display: none"></div>
+      <button id="submit" style="display: none">제출</button>
+      <button id="restart" style="display: none">재시작</button>
+      <div id="result"></div>
+    </div>
+    <div class="s">
+      <div id="oxQuiz" class="s" style="display: none"></div>
+      <button id="oxSubmit" style="display: none">제출</button>
+      <button id="oxRestart" style="display: none">재시작</button>
+      <div id="oxResult" class="i"></div>
+    </div>
+    <script>
+      const quizData = [
+        {
+          question: "해양 오염의 주요 원인은 무엇인가요?",
+          answers: {
+            a: "산업 폐기물",
+            b: "가정 쓰레기",
+            c: "모두 해당",
+          },
+          correct: "c",
+        },
+        {
+          question: "해양 오염으로 인해 가장 큰 영향을 받는 생물은?",
+          answers: {
+            a: "산호",
+            b: "조류",
+            c: "포유류",
+          },
+          correct: "a",
+        },
+        {
+          question: "플라스틱 오염의 주된 원인은?",
+          answers: {
+            a: "플라스틱 빨대",
+            b: "플라스틱 병",
+            c: "플라스틱 봉투",
+          },
+          correct: "c",
+        },
+        {
+          question: "해양 생태계 보호를 위한 방안이 아닌 것은?",
+          answers: {
+            a: "플라스틱 사용 줄이기",
+            b: "재활용 늘리기",
+            c: "더 많은 플라스틱 생산",
+          },
+          correct: "c",
+        },
+        {
+          question: "해양 오염이 인간에게 미치는 영향은?",
+          answers: {
+            a: "식량 오염",
+            b: "관광 산업 손실",
+            c: "모두 해당",
+          },
+          correct: "c",
+        },
+        {
+          question: "석유 유출 사고가 가장 많이 발생하는 이유는?",
+          answers: {
+            a: "배의 사고",
+            b: "해저 파이프라인의 손상",
+            c: "자연 재해",
+          },
+          correct: "a",
+        },
+        {
+          question: "해양 오염을 줄이기 위해 개인이 할 수 있는 일은?",
+          answers: {
+            a: "일회용 플라스틱 사용 줄이기",
+            b: "바다에 쓰레기 버리기",
+            c: "자동차 더 많이 사용하기",
+          },
+          correct: "a",
+        },
+        {
+          question: "해양 쓰레기 중 가장 많은 비율을 차지하는 것은?",
+          answers: {
+            a: "유리",
+            b: "금속",
+            c: "플라스틱",
+          },
+          correct: "c",
+        },
+        {
+          question: "해양 오염이 가장 심각한 지역은?",
+          answers: {
+            a: "대서양",
+            b: "태평양",
+            c: "북극해",
+          },
+          correct: "b",
+        },
+        {
+          question: "해양 오염의 결과로 발생하는 문제는?",
+          answers: {
+            a: "해양 생물의 멸종",
+            b: "수질 오염",
+            c: "모두 해당",
+          },
+          correct: "c",
+        },
+        {
+          question: "해양 오염 방지를 위한 국제 협약은?",
+          answers: {
+            a: "파리 협정",
+            b: "런던 협약",
+            c: "교토 의정서",
+          },
+          correct: "b",
+        },
+        {
+          question: "해양 오염의 주요 원인 중 하나는?",
+          answers: {
+            a: "공장 배출물",
+            b: "자동차 배기 가스",
+            c: "산업 폐기물",
+          },
+          correct: "c",
+        },
+        {
+          question: "해양 플라스틱 오염을 줄이기 위한 방법은?",
+          answers: {
+            a: "플라스틱 제품 사용 줄이기",
+            b: "플라스틱 제품 재활용하기",
+            c: "모두 해당",
+          },
+          correct: "c",
+        },
+        {
+          question: "해양 생물에게 해로운 것은?",
+          answers: {
+            a: "기름 유출",
+            b: "해양 보호 구역",
+            c: "수산업",
+          },
+          correct: "a",
+        },
+        {
+          question: "해양 오염 문제를 해결하기 위한 방법은?",
+          answers: {
+            a: "해양 청소 활동",
+            b: "해양 보호 구역 지정",
+            c: "모두 해당",
+          },
+          correct: "c",
+        },
+        {
+          question: "해양 오염을 줄이기 위한 개인의 행동은?",
+          answers: {
+            a: "일회용 플라스틱 사용 줄이기",
+            b: "바다에 쓰레기 버리기",
+            c: "해양 생물 채집하기",
+          },
+          correct: "a",
+        },
+        {
+          question: "해양 오염의 결과는?",
+          answers: {
+            a: "해양 생물의 감소",
+            b: "해양 생태계의 변화",
+            c: "모두 해당",
+          },
+          correct: "c",
+        },
+        {
+          question: "해양 오염의 가장 큰 원인은?",
+          answers: {
+            a: "산업 폐기물",
+            b: "가정 쓰레기",
+            c: "선박 폐기물",
+          },
+          correct: "a",
+        },
+        {
+          question: "해양 오염 문제를 해결하기 위한 국제 협력의 중요성은?",
+          answers: {
+            a: "국경을 초월하는 문제이기 때문에",
+            b: "한 나라의 문제이기 때문에",
+            c: "해양 생물의 멸종을 막기 위해",
+          },
+          correct: "a",
+        },
+        {
+          question: "해양 오염이 해양 생태계에 미치는 영향은?",
+          answers: {
+            a: "해양 생물의 멸종",
+            b: "수질 오염",
+            c: "모두 해당",
+          },
+          correct: "c",
+        },
+      ];
+
+      const oxQuizData = [
+        {
+          question: "해양 오염은 지구 온난화와 관련이 있다.",
+          correct: "O",
+        },
+        {
+          question: "플라스틱은 자연적으로 완전히 분해될 수 있다.",
+          correct: "X",
+        },
+        {
+          question: "해양 오염은 인간 건강에 영향을 미치지 않는다.",
+          correct: "X",
+        },
+        {
+          question: "재활용을 통해 해양 오염을 줄일 수 있다.",
+          correct: "O",
+        },
+        {
+          question: "모든 해양 쓰레기는 인간에 의해 발생한다.",
+          correct: "O",
+        },
+      ];
+
+      let usedQuestions = [];
+      let usedOxQuestions = [];
+      let score = 0;
+      let oxScore = 0;
+
+      const selectionDisplay = document.getElementById("selection");
+      const quizDisplay = document.getElementById("quiz");
+      const oxQuizDisplay = document.getElementById("oxQuiz");
+      const submitBtn = document.getElementById("submit");
+      const restartBtn = document.getElementById("restart");
+      const oxSubmitBtn = document.getElementById("oxSubmit");
+      const oxRestartBtn = document.getElementById("oxRestart");
+      const resultDisplay = document.getElementById("result");
+      const oxResultDisplay = document.getElementById("oxResult");
+      const startQuizBtn = document.getElementById("startQuiz");
+      const startOxQuizBtn = document.getElementById("startOxQuiz");
+
+      function getRandomQuestion() {
+        if (usedQuestions.length === quizData.length) {
+          return null;
+        }
+        let randomIndex;
+        do {
+          randomIndex = Math.floor(Math.random() * quizData.length);
+        } while (usedQuestions.includes(randomIndex));
+        usedQuestions.push(randomIndex);
+        return quizData[randomIndex];
+      }
+
+      function getRandomOxQuestion() {
+        if (usedOxQuestions.length === oxQuizData.length) {
+          return null;
+        }
+        let randomIndex;
+        do {
+          randomIndex = Math.floor(Math.random() * oxQuizData.length);
+        } while (usedOxQuestions.includes(randomIndex));
+        usedOxQuestions.push(randomIndex);
+        return oxQuizData[randomIndex];
+      }
+
+      function buildQuiz() {
+        const currentQuestion = getRandomQuestion();
+        if (!currentQuestion) {
+          quizDisplay.innerHTML = "";
+          resultDisplay.innerHTML = `퀴즈 완료! 총 점수: ${score}/${quizData.length}`;
+          submitBtn.style.display = "none";
+          restartBtn.style.display = "block";
+          return;
+        }
+        const answers = [];
+        for (let item in currentQuestion.answers) {
+          answers.push(`<label>
+                          <input type="radio" name="question" value="${item}">
+                          ${item} : ${currentQuestion.answers[item]}
+                        </label>`);
+        }
+        const output = `<div class="question"> ${currentQuestion.question}</div>
+                        <div class="answer">${answers.join("")}</div>`;
+        quizDisplay.innerHTML = output;
+        quizDisplay.style.color = "black";
+        submitBtn.style.display = "block";
+      }
+
+      function buildOxQuiz() {
+        const currentQuestion = getRandomOxQuestion();
+        if (!currentQuestion) {
+          oxQuizDisplay.innerHTML = "";
+          oxResultDisplay.innerHTML = `OX 퀴즈 완료! 총 점수: ${oxScore}/${oxQuizData.length}`;
+          oxSubmitBtn.style.display = "none";
+          oxRestartBtn.style.display = "block";
+          return;
+        }
+        const output = `<div class="question">${currentQuestion.question}</div>
+                        <div class="answer">
+                          <button class="ox-button" value="O">O</button>
+                          <button class="ox-button" value="X">X</button>
+                        </div>`;
+        oxQuizDisplay.innerHTML = output;
+        oxQuizDisplay.style.color = "black";
+        oxSubmitBtn.style.display = "block";
+        document.querySelectorAll(".ox-button").forEach((button) => {
+          button.addEventListener("click", showOxResult);
+        });
+      }
+
+      function showResult() {
+        const answerDisplay = quizDisplay.querySelector(".answer");
+        const selector = `input[name=question]:checked`;
+        const userAnswer = (answerDisplay.querySelector(selector) || {}).value;
+        const currentQuestion =
+          quizData[usedQuestions[usedQuestions.length - 1]];
+
+        if (userAnswer === currentQuestion.correct) {
+          score++;
+          resultDisplay.innerHTML = "정답입니다!";
+          answerDisplay.style.color = "lightgreen";
+        } else {
+          resultDisplay.innerHTML = `틀렸습니다. 정답은 ${currentQuestion.correct}입니다.`;
+          answerDisplay.style.color = "red";
+        }
+
+        submitBtn.style.display = "none";
+
+        setTimeout(() => {
+          resultDisplay.innerHTML = "";
+          buildQuiz();
+        }, 1000);
+      }
+
+      function showOxResult(event) {
+        const userAnswer = event.target.value;
+        const currentQuestion =
+          oxQuizData[usedOxQuestions[usedOxQuestions.length - 1]];
+
+        if (userAnswer === currentQuestion.correct) {
+          oxScore++;
+          oxResultDisplay.innerHTML = "정답입니다!";
+          oxQuizDisplay.style.color = "lightgreen";
+        } else {
+          oxResultDisplay.innerHTML = `틀렸습니다. 정답은 ${currentQuestion.correct}입니다.`;
+          oxQuizDisplay.style.color = "red";
+        }
+
+        oxSubmitBtn.style.display = "none";
+
+        setTimeout(() => {
+          oxResultDisplay.innerHTML = "";
+          buildOxQuiz();
+        }, 1000);
+      }
+
+      function restartQuiz() {
+        usedQuestions = [];
+        score = 0;
+        resultDisplay.innerHTML = "";
+        submitBtn.style.display = "block";
+        restartBtn.style.display = "none";
+        buildQuiz();
+      }
+
+      function restartOxQuiz() {
+        usedOxQuestions = [];
+        oxScore = 0;
+        oxResultDisplay.innerHTML = "";
+        oxSubmitBtn.style.display = "block";
+        oxRestartBtn.style.display = "none";
+        buildOxQuiz();
+      }
+
+      function startQuiz() {
+        selectionDisplay.style.display = "none";
+        quizDisplay.style.display = "block";
+        buildQuiz();
+      }
+
+      function startOxQuiz() {
+        selectionDisplay.style.display = "none";
+        oxQuizDisplay.style.display = "block";
+        buildOxQuiz();
+      }
+
+      function askToSwitchQuiz() {
+        if (quizDisplay.style.display === "block") {
+          quizDisplay.style.display = "none";
+          const confirmation = confirm("OX 퀴즈도 풀겠습니까?");
+          if (confirmation) {
+            startOxQuiz();
+          } else {
+            selectionDisplay.style.display = "block";
+          }
+        } else if (oxQuizDisplay.style.display === "block") {
+          oxQuizDisplay.style.display = "none";
+          const confirmation = confirm("객관식 퀴즈도 풀겠습니까?");
+          if (confirmation) {
+            startQuiz();
+          } else {
+            selectionDisplay.style.display = "block";
+          }
+        }
+      }
+
+      submitBtn.addEventListener("click", () => {
+        showResult();
+        if (usedQuestions.length === quizData.length) {
+          setTimeout(askToSwitchQuiz, 1000);
+        }
+      });
+
+      restartBtn.addEventListener("click", restartQuiz);
+
+      oxSubmitBtn.addEventListener("click", () => {
+        showOxResult(event);
+        if (usedOxQuestions.length === oxQuizData.length) {
+          setTimeout(askToSwitchQuiz, 1000);
+        }
+      });
+
+      oxRestartBtn.addEventListener("click", restartOxQuiz);
+
+      startQuizBtn.addEventListener("click", startQuiz);
+      startOxQuizBtn.addEventListener("click", startOxQuiz);
+    </script>
+  </body>
+</html>

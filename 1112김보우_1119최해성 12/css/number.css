@@ -1,0 +1,50 @@
+/* 페이지의 폰트와 기본 스타일을 설정 */
+body {
+    font-family: Arial, sans-serif; /* 기본 폰트를 Arial로 설정하고, 대체 폰트를 sans-serif로 설정 */
+    margin: 0; /* 페이지의 기본 여백을 0으로 설정 */
+    padding: 0; /* 페이지의 기본 패딩을 0으로 설정 */
+    background-color: #f4f4f4; /* 페이지의 배경색을 밝은 회색으로 설정 */
+  }
+  
+  /* 중앙에 정렬된 컨텐츠 영역을 설정 */
+  .container {
+    max-width: 800px; /* 컨텐츠 영역의 최대 너비를 800px로 설정 */
+    margin: 0 auto; /* 자동 마진을 설정하여 컨텐츠를 수평으로 중앙에 정렬 */
+    padding: 20px; /* 컨텐츠 영역 내부 여백을 20px로 설정 */
+    text-align: center; /* 텍스트를 중앙 정렬 */
+    background-color: #fff; /* 배경색을 흰색으로 설정 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 컨텐츠 영역에 그림자를 추가하여 입체감을 줌 */
+    border-radius: 10px; /* 모서리를 둥글게 설정 */
+  }
+  
+  /* 제목 스타일을 설정 */
+  h1 {
+    color: #333; /* 글자 색을 어두운 회색으로 설정 */
+    font-size: 2.5em; /* 글자 크기를 크게 설정 */
+    margin-bottom: 20px; /* 제목 아래 여백을 20px로 설정 */
+  }
+  
+  /* 네비게이션 메뉴 스타일을 설정 */
+  nav ul {
+    list-style: none; /* 목록의 기본 스타일을 제거 */
+    padding: 0; /* 목록의 기본 패딩을 제거 */
+  }
+  
+  /* 네비게이션 항목의 스타일을 설정 */
+  nav ul li {
+    display: inline-block; /* 목록 항목을 가로로 배치 */
+    margin: 0 10px; /* 항목 사이에 좌우 여백을 10px씩 설정 */
+  }
+  
+  /* 네비게이션 링크 스타일을 설정 */
+  nav ul li a {
+    text-decoration: none; /* 링크의 밑줄을 제거 */
+    color: #007bff; /* 링크 색상을 파란색으로 설정 */
+    font-size: 1.2em; /* 링크 글자 크기를 크게 설정 */
+  }
+  
+  /* 링크에 마우스를 올렸을 때 스타일을 설정 */
+  nav ul li a:hover {
+    color: #0056b3; /* 링크 색상을 더 어두운 파란색으로 변경 */
+  }
+  

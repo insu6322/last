@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" /> <!-- 문자 인코딩 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 뷰포트 설정 -->
+    <title>문제의 심각성</title> <!-- 페이지 제목 -->
+    <link rel="stylesheet" href="../css/styles.css" /> <!-- 외부 스타일시트 연결 -->
+    <link
+    rel="icon"
+    type="image/x-icon"
+    href="../image/logo.png"
+  />
+    <script src="../js/script.js" defer></script> <!-- 외부 자바스크립트 연결 -->
+  </head>
+  <body>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>
+          <img src="../image/logo.png" alt="로고" class="logo" />
+          <a href="main.html">신고</a>
+        </h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="main.html">홈페이지</a>
+            </li>
+            <li>
+                <a href="marine_pollution.html">퀴즈</a>
+            </li>
+            <li>
+              <a href="seriousness.html">오염 현황</a>
+            </li>
+            <li>
+              <a href="solution.html">캠페인</a>
+            </li>
+            <li>
+              <a href="number.html"><b>현재 페이지</b></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+
+
+        main {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form div {
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #006994;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #014e6d;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <form id="reportForm">
+            <div>
+                <label for="location">발견 위치:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+            <div>
+                <label for="description">쓰레기 설명:</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+            </div>
+            <button type="submit">신고</button>
+        </form>
+        <div id="confirmation" class="hidden">
+            <p>신고가 접수되었습니다. 감사합니다!</p>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const reportForm = document.getElementById('reportForm');
+            const confirmationDiv = document.getElementById('confirmation');
+
+            reportForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                
+                // Get form data
+                const location = document.getElementById('location').value;
+                const description = document.getElementById('description').value;
+
+                // Normally, here you would send the data to a server-side script using fetch or XHR
+                // For this example, we just show a confirmation message
+                showConfirmation();
+            });
+
+            function showConfirmation() {
+                // Hide the form and show the confirmation message
+                reportForm.classList.add('hidden');
+                confirmationDiv.classList.remove('hidden');
+            }
+        });
+    </script>
+    </main>
+    <footer class="ffff">
+      <p>        © 2024 청정 바다를 위한 웹 개발자 : 김현준 , 최해성 &nbsp| &nbsp주소 :
+        대구 소프트웨어 마이스터 고등학교 해커톤 팀:33</p>
+      <hr>
+    </footer>
+  </body>
+</html>
